@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/RegisterV2.css">
+    <title>Registrarse - SerchJobs</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="index.html">
+                <h1>SerchJobs</h1>
+            </a>
+
+            <nav>
+                <a href="serch.html">Buscar</a>
+                <a href="#">Empleos</a>
+                <a href="#">Empresas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-section">
+                <div class="form-content form-panel active" id="form-trabajador">
+                    <div class="form-header">
+                        <h1>Crea tu cuenta</h1>
+                        <p>Únete a la comunidad de talentos IT más grande de la región</p>
+                    </div>
+
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="trabajador">Soy Trabajador</button>
+                        <button class="tab-button" data-tab="empresa">Soy una empresa</button>
+                    </div>
+
+                    <form action="Login.html" method="post" enctype="multipart/form-data" id="registerFormWorkers">
+                        <div class="form-group">
+                            <label>Nombre y Apellido</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="name" class="form-input" placeholder="Juan Pérez" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <div class="input-wrapper">
+                                <input type="email" name="email" class="form-input" placeholder="juan@ejemplo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <div class="form-div-pass">
+                                <input type="password" class="form-input form-input-pass" name="password"
+                                    placeholder="Contraseña" required>
+                                <button type="button" class="form-input form-button-pass" name="pass-view">
+                                    <!-- 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" id="eye">
+                                        <g fill="none" fill-rule="evenodd" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" transform="translate(1 1)">
+                                            <path d="M0 8s4-8 11-8 11 8 11 8-4 8-11 8S0 8 0 8z"></path>
+                                            <circle cx="11" cy="8" r="3"></circle>
+                                        </g>
+                                    </svg> ojo abierto
+                                -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" id="eye">
+                                        <g fill="none" fill-rule="evenodd" stroke="#ffffff" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2">
+                                            <path
+                                                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="password-hint">Mínimo 8 caracteres</p>
+                        </div>
+                        <button type="submit" id="btn-worker" class="submit-button">Crear Cuenta</button>
+                    </form>
+
+                    <div class="divider"></div>
+
+                    <div class="login-link">
+                        ¿Ya tienes una cuenta? <a href="Login.html">Inicia sesión</a>
+                    </div>
+                </div>
+
+                <div class="form-content form-panel" id="form-empresa">
+                    <div class="form-header">
+                        <h1>Registro de Empresa</h1>
+                        <p>Crea la cuenta de tu empresa y publica ofertas para encontrar talento IT.</p>
+                    </div>
+
+                    <div class="tab-buttons">
+                        <button class="tab-button" data-tab="trabajador">Soy Trabajador</button>
+                        <button class="tab-button" data-tab="empresa">Soy una empresa</button>
+                    </div>
+
+                    <form id="company-form" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Nombre de la empresa</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="name" class="form-input"
+                                    placeholder="Ej: Acme Tech S.A." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>CUIT</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="cuilt" class="form-input" placeholder="XX-XXXXXXXX-X" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rubro</label>
+                            <div class="input-wrapper">
+                                <select name="rubro" class="form-input form-input-combox" required>
+                                    <option value="">Seleccionar Rubro</option>
+                                    <option value="software">Software / IT</option>
+                                    <option value="fintech">FinTech</option>
+                                    <option value="consultoria">Consultoría</option>
+                                    <option value="salud">Salud</option>
+                                    <option value="educacion">Educación</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sitio web</label>
+                            <div class="input-wrapper">
+                                <input type="url" name="sitoWEB" class="form-input"
+                                    placeholder="https://www.ejemplo.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo de contacto</label>
+                            <div class="input-wrapper">
+                                <input type="email" name="email" class="form-input"
+                                    placeholder="contacto@empresa.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <div class="input-wrapper">
+                                <input type="tel" name="telefono" class="form-input" placeholder="+54 9 223 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dirección</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="direccion" class="form-input"
+                                    placeholder="Calle, número, ciudad, país">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <div class="form-div-pass" id="contet-buttom-pssw">
+                                <input type="password" id="password" name="password" class="form-input form-input-pass"
+                                    placeholder="Contraseña" minlength="8" required>
+                                <button type="button" class="form-input form-button-pass" id="togglePass"
+                                    aria-label="Mostrar contraseña">
+                                    <!-- icono simple (reusa el svg que usas en RegisterV2) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" id="eye">
+                                        <g fill="none" fill-rule="evenodd" stroke="#ffffff" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2">
+                                            <path
+                                                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="password-hint">Mínimo 8 caracteres</p>
+                        </div>
+
+
+                    </form>
+                    <button type="submit" id="btn-company" form="company-form" class="submit-button">Crear cuenta de empresa</button>
+
+                    <div class="divider"></div>
+
+                    <div class="login-link">
+                        ¿Ya tenés una cuenta? <a href="Login.html">Iniciá sesión</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-panel active" id="hero-trabajador">
+                <div class="hero-section">
+                    <h2 class="hero-title">Encuentra tu próximo gran desafío</h2>
+                    <p class="hero-description">
+                        Conecta con las mejores empresas de tecnología, accede a ofertas exclusivas y lleva tu carrera
+                        al
+                        siguiente nivel con herramientas diseñadas por y para programadores.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">🚀</div>
+                            <div class="feature-text">Startups de alto crecimiento</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💵</div>
+                            <div class="feature-text">Salarios en USD</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🏠</div>
+                            <div class="feature-text">Trabajo remoto 100%</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Empresas verificadas</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-link">
+                        Descubre por qué nos eligen
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="form-panel" id="hero-empresa">
+                <div class="hero-section">
+                    <h2 class="hero-title">Conecta con talento calificado</h2>
+                    <p class="hero-description">
+                        Publicá ofertas, recibí postulaciones y encontrá desarrolladores que se adapten a las
+                        necesidades de
+                        tu empresa.
+                    </p>
+
+                    <div class="features" aria-hidden="true">
+                        <div class="feature">
+                            <div class="feature-icon">🚀</div>
+                            <div class="feature-text">Publicá en minutos</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-text">Perfiles verificados</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💼</div>
+                            <div class="feature-text">Gestión de postulaciones</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-text">Seguridad y privacidad</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-link">Descubre por tu cuenta
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

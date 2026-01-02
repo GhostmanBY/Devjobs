@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>DevJobs - Buscar</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en DevJobs.">
+
+  <link rel="stylesheet" href="css/serch.css" />
+</head>
+
+<body>
+  <header>
+    <div>
+      <a href="index.html">
+        <h1>SerchJobs</h1>
+      </a>
+      <nav>
+        <a href="#buscar">Buscar</a>
+        <a href="#empleos">Empleos</a>
+        <a href="#empresas">Empresas</a>
+      </nav>
+    </div>
+    <div>
+      <a class="btn-gen" href="RegisterV2.html">Registrarse</a>
+      <a class="btn-focus" href="Login.html">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h1>Encuentra tu próximo trabajo</h1>
+      <p>Explora miles de oportunidades en el sector tecnologico</p>
+      <form role="search" class="search-bar">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+
+          <input type="text" placeholder="Buscar empleos por título, habilidad o empresa">
+        </div>
+      </form>
+      <div class="Fliters">
+        <select name="techs" id="techs-filter">
+          <option value="">Tecnologías</option>
+          <option value="python">Python</option>
+          <option value="javascript">JavaScript</option>
+          <option value="java">Java</option>
+          <option value="csharp">C#</option>
+          <option value="ruby">Ruby</option>
+          <option value="php">PHP</option>
+          <option value="go">Go</option>
+          <option value="typescript">TypeScript</option>
+        </select>
+        <select name="locations" id="location-filter">
+          <option value="">Ubicacion</option>
+          <option value="remote">Remoto</option>
+          <option value="newyork">Nueva York, USA</option>
+          <option value="sanfrancisco">San Francisco, USA</option>
+          <option value="london">Londres, UK</option>
+          <option value="berlin">Berlín, Alemania</option>
+          <option value="tokyo">Tokio, Japón</option>
+          <option value="sydney">Sídney, Australia</option>
+        </select>
+        <select name="contra" id="contra-filter">
+          <option value="">Tipo de Contrato</option>
+          <option value="fulltime">Jornada completa</option>
+          <option value="parttime">Meida Jornada</option>
+          <option value="temp">Temporal</option>
+          <option value="internship">Pasantía</option>
+          <option value="freelance">Freelance</option>
+        </select>
+        <select name="exp" id="exp-filter">
+          <option value="">Nivel de experiencia</option>
+          <option value="junior">Junior</option>
+          <option value="semi-señor">Semi-Señor</option>
+          <option value="senior">Senior</option>
+          <option value="lead">Líder Técnico</option>
+        </select>
+      </div>
+    </section>
+
+    <section>
+      <h2>Resultados de búsqueda</h2>
+      <div class="content-Cards" id="jobs-container">
+      </div>
+    </section>
+    <section>
+      <div class="pagination" id="pagination"></div>
+    </section>
+  </main>
+  <script src="js/serch.js"></script>
+</body>
+
+</html>

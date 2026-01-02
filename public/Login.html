@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>SerchJobs - Inicio</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en DevJobs.">
+
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="empleos, desarrolladores, trabajos, tecnología, programación, software" />
+  <meta name="author" content="Ghostman" />
+
+  <!-- <link rel="altetante" href="https://devjobs.com"/>  para el redirect de url para interpretar www o sin www-->
+  <link rel="stylesheet" href="css/Login.css" />
+</head>
+
+<body>
+  <header>
+    <div>
+      <a href="index.html">
+        <h1>SerchJobs</h1>
+      </a>
+      <nav>
+        <a href="serch.html">Buscar</a>
+        <a href="#empleos">Empleos</a>
+        <a href="#empresas">Empresas</a>
+        <!--<a href="#salarios">Salarios</a> tengo que hacer una calculador de saliros dependiendo el trabajo-->
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-container">
+      <div class="Sing-Welcome">
+        <h1>Bienvenido</h1>
+        <p>Inicie sesion para seguri descubriendo mas oportunidades</p>
+      </div>
+      <div class="login-card">
+        <form class="login-form" id="login-form">
+          <div class="form-group">
+            <input type="email" class="form-input-mail" name="email" placeholder="Correo electrónico" required>
+            <div class="form-div-pass">
+              <input type="password" class="form-input-pass" name="password" placeholder="Contraseña">
+              <button type="button" class="form-button-pass" name="pass-view">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" id="eye">
+                  <g fill="none" fill-rule="evenodd" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" transform="translate(1 1)">
+                    <path d="M0 8s4-8 11-8 11 8 11 8-4 8-11 8S0 8 0 8z"></path>
+                    <circle cx="11" cy="8" r="3"></circle>
+                  </g>
+                </svg> ojo abierto-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" id="eye">
+                  <g fill="none" fill-rule="evenodd" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2">
+                    <path
+                      d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22">
+                    </path>
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="checkbox-row">
+            <label class="checkbox-label">
+              <input type="checkbox" name="remember" value="yes">
+              <span>Recordarme</span>
+            </label>
+            <a href="#forgot" class="forgot-password">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button type="submit" form="login-form" id="btn-login" class="btn-primary">Ingresar</button>
+
+          <div class="divider">
+            ¿No estás registrado?
+          </div>
+
+          <button type="button" class="btn-secondary"
+            onclick="window.location.href='RegisterV2.html'">Registrarse</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 DevJobs. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+
+</html>
