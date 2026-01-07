@@ -8,14 +8,21 @@ class login {
 
     public function auth_login(array $body): ?array{
         try {
-            if ($body  === NULL || $body === []) {
+            if (empty($body)) {
                 throw new HttpException(404, 'Los datos enviados no son precisos');
             }
             $data = $this->rr->auth_login($body);
-            return $data;
+            session_start();
+
+            $_SESSION["user_id"]   = $data["id"];
+            $_SESSION["user_name"] = $data["username"];
+            return [
+                "success" => true,
+                "username" => $data["username"]
+            ];
         } catch (HttpException $e) {
             http_response_code(404);
-            json_encode(['Error' => $e->getMessage()]);
+            echo json_encode(['Error' => $e->getMessage()]);
             exit;
         }
     }

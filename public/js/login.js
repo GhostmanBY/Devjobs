@@ -21,9 +21,10 @@ document.getElementById("login-form").addEventListener("submit", e =>{
             window.location.href = "index.html";
         }, 2000);
     }).catch(err => {
-
         btn_login.style.color = "#c50000ff";
         btn_login.textContent = "❌ Error al Ingreso";
+
+        console.log(err);
 
         setTimeout(() => {
             btn_login.style.color = "white";

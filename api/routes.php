@@ -1,9 +1,5 @@
 <?php
-
-use Uri\Rfc3986\Uri;
-
 class Router {
-
     private array $routes = [];
 
     public function add(string $method, string $path, callable $handler): void {
@@ -18,12 +14,13 @@ class Router {
 
         if (isset($this->routes[$method][$uri])) {
             call_user_func($this->routes[$method][$uri], $body);
-
             return;
+
         }else {
             http_response_code(404);
             echo json_encode(['error' => 'Ruta no encontrada']);
         }
     }
 }
+
 ?>
