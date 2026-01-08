@@ -14,6 +14,7 @@ class login {
             $data = $this->rr->auth_login($body);
             session_start();
 
+            $_SESSION["logueado"]  = $data["success"];
             $_SESSION["user_id"]   = $data["id"];
             $_SESSION["user_name"] = $data["username"];
             return [

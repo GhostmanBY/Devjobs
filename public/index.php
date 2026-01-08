@@ -1,6 +1,8 @@
-<!-- <?php
+<?php
   session_start();
-?> -->
+  $isLoggedIn = isset($_SESSION['logueado']) && $_SESSION['logueado'] === true;
+  $userName = $_SESSION['user_name'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,7 +20,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body data-username="">
+<body data-username="<?= htmlspecialchars($userName) ?>">
   <!--<dialog id="login-dialog"></dialog>-->
   <header>
     <div>
@@ -115,7 +117,6 @@
   <script src="js/index.js"></script>
 </body>
 </html>
-<!-- <?php
-  $userName = $_SESSION["user_name"] ?? "";
+<?php
+  $userName = $_SESSION["user_name"];
 ?>
- -->
