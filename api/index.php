@@ -46,26 +46,11 @@ $router->add('POST', '/register/company', function ($body) {
 $router->add('POST', '/auth/login', function ($body) {
     $login = new login();
     $data = $login->auth_login($body);
-
-    if ($data["success"] === true) {
-        header("Location: http://127.0.0.1:3000/public/home.html");
-    }
-
+    
     echo json_encode($data);
 });
 
 $router->add('GET', '/auth/login/verific', function () {
-    // Devuelve un array asociativo
-    $headers = getallheaders();
-
-    // Imprimir rápido para debugear
-    echo '<pre>';
-    print_r($headers);
-    echo '</pre>';
-
-    // O si querés verlo como JSON limpio (útil si estás probando una API)
-    header('Content-Type: application/json');
-    echo json_encode($headers);
     if (!isset($_COOKIE["token"])) {
         http_response_code(401);
         echo json_encode(["error" => $_COOKIE]);
@@ -75,7 +60,7 @@ $router->add('GET', '/auth/login/verific', function () {
     try {
         $decoded = JWT::decode(
             $_COOKIE["token"],
-            new Key(JWT_SECRET, "HS256")
+        new Key(JWT_SECRET, "HS256")
         );
         http_response_code(200);
         return $decoded;

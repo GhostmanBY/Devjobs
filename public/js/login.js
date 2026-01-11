@@ -18,9 +18,9 @@ document.getElementById("login-form").addEventListener("submit", e =>{
         btn_login.style.color = "#00f82dff";
         btn_login.textContent = "✅ Ingreso con éxito";
 
-        // setTimeout(() => {
-        //     window.location.href = "home.html";
-        // }, 10000);
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 1000);
     }).catch(err => {
         btn_login.style.color = "#c50000ff";
         btn_login.textContent = "❌ Error al Ingreso";
