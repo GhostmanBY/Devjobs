@@ -10,7 +10,8 @@ class Router {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         
-        $body = json_decode(file_get_contents("php://input"), true ?? []);
+        $json = file_get_contents("php://input");
+        $body = json_decode($json, true) ?? [];
 
         if (isset($this->routes[$method][$uri])) {
             call_user_func($this->routes[$method][$uri], $body);

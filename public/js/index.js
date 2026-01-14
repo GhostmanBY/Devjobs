@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!respo.ok) throw new Error("Sesion invalidas");
         return respo.json();
     }).then(data => {
-        const userName = data.name;
+        const userName = data.user.username;
         console.log("Username: ", userName);
 
         if (userName) {

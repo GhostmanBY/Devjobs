@@ -8,6 +8,7 @@ require_once __DIR__ . '/utils/HttpException.php';
 require_once __DIR__ . '/routes.php';
 require_once __DIR__ . '/controllers/register.php';
 require_once __DIR__ . '/controllers/login.php';
+require_once __DIR__ . '/controllers/search.php';
 require_once __DIR__ . '/services/WirteRegister.php';
 require_once __DIR__ . '/services/ReadRegister.php';
 
@@ -20,7 +21,7 @@ header("Access-Control-Allow-Origin: $origin");
 
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
@@ -62,13 +63,34 @@ $router->add('GET', '/auth/login/verific', function () {
             $_COOKIE["token"],
         new Key(JWT_SECRET, "HS256")
         );
+
+        $response = [
+            "success" => true,
+            "user" => [
+                "id" => $decoded->sub,
+                "username" => $decoded->username
+            ],
+            "message" => "Usuario autenticado correctamente"
+        ];
         http_response_code(200);
-        return $decoded;
+        echo json_encode($response);
+        exit;
     } catch (Exception $e) {
         http_response_code(401);
-        echo json_encode(["error" => "Token inválido"]);
+        echo json_encode(["error" => "Token inválido: " . $e->getMessage()]);
         exit;
     }
+});
+
+$router->add('POST', '/serch/page/', function ($body) {
+    $page  = isset($body['page']) ? (int)$body['page'] : 1;
+    $limit = 5;
+
+    $search = new Search($page, $limit);
+    $jobs = $search->search_jobs();
+
+    echo json_encode($jobs);
+    exit;
 });
 
 $router->run();

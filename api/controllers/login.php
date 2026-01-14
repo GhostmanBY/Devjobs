@@ -24,7 +24,7 @@ class login {
                 "iat" => $issuedAt,
                 "exp" => $expire,
                 "sub" => $data["id"],
-                "name" => $data["username"]
+                "username" => $data["username"]
             ];
 
             $jwt = JWT::encode($payload, $secret, "HS256");
@@ -42,16 +42,17 @@ class login {
     }
     
     private function __seter_cookies__($jwt) {
-        setcookie(  
+        if (headers_sent($file, $line)) {
+            error_log("Headers already sent in $file on line $line");
+        }
+        setcookie(
             "token",
             $jwt,
-            [
-                "expires" => time() + 3600,
-                "path" => "/",
-                 'secure' => false,
-                "httponly" => true,   // JS no accede
-                "samesite" => "Lax"
-            ]
+            time() + 3600,
+            "/",
+            "",
+            false,
+            true
         );
     }
 }

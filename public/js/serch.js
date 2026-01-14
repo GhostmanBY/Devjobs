@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/get_jobs.php";
+const API_URL = "http://localhost:8000/serch/page/";
 const container = document.getElementById("jobs-container");
 
 const pagination = document.getElementById("pagination");
@@ -8,20 +8,26 @@ let currentPage = 1;
 async function loadJobs(page = 1) {
   currentPage = page;
 
-  const res = await fetch(`${API_URL}?page=${page}`, {
-    method: "GET",
+  const res = await fetch(`${API_URL}`, {
+    method: "POST",
+    body: {
+      "page": page
+    },
     headers: {
       "Accept": "application/json"
     }
   });
   const data = await res.json();
 
+  console.log(data);
+  
   renderJobs(data.jobs);
   renderPagination(data.totalPages, data.currentPage);
 }
 
 function renderJobs(jobs) {
   container.innerHTML = "";
+  console.log(jobs);
 
   jobs.forEach(job => {
     const article = document.createElement("article");

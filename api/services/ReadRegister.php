@@ -38,6 +38,28 @@ class ReadRegister {
             "email"    => $user_data["email"] ?? null
         ];
     }
+
+    public function search_jobs($page, $page_limit) {
+        $pdo = $this->db->get_db();
+
+        $stmt = $pdo->prepare("CALL sp_GetSerchPaginated(?, ?, @p_total_pages)");
+        $stmt->execute([$page, $page_limit]);
+
+        $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->closes_cursor($stmt);
+        
+        $outStmt = $pdo->query("SELECT @p_total_pages as total_pages");
+
+        $total_pages_raw = $outStmt->fetchColumn();
+        $this->db->closes_cursor($outStmt);
+        
+
+        return[
+            "jobs" => $jobs,
+            "totalPages" => (int)$total_pages_raw,
+            "currentPage" => $page
+        ];
+    }
     
 }
 ?>
